@@ -1,8 +1,7 @@
 {
-  "name": "preact-render-to-string",
-  "amdName": "preactRenderToString",
-  "version": "3.6.2",
-  "description": "Render JSX to an HTML string, with support for Preact components.",
+  "name": "qreact-render-to-string",
+  "amdName": "qreactRenderToString",
+  "version": "0.0.1",
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
   "scripts": {
@@ -14,23 +13,14 @@
     "release": "npm run build && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
   "keywords": [
-    "preact",
+    "qreact",
     "render",
     "universal",
     "isomorphic"
   ],
-  "author": "Jason Miller <jason@developit.ca>",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/developit/preact-render-to-string.git"
-  },
-  "bugs": {
-    "url": "https://github.com/developit/preact-render-to-string/issues"
-  },
-  "homepage": "https://github.com/developit/preact-render-to-string",
   "peerDependencies": {
-    "preact": "*"
+    "qreact": "*"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
@@ -46,7 +36,7 @@
     "chai": "^3.5.0",
     "eslint": "^3.2.2",
     "mocha": "^3.0.0",
-    "preact": "^8.1.0",
+    "qreact": "^0.0.1",
     "rollup": "^0.34.3",
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-commonjs": "^3.3.1",
