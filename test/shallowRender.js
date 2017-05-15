@@ -1,5 +1,5 @@
 import { shallowRender } from '../src';
-import { h, Component } from 'qreact';
+import React, {Component} from 'react';
 import chai, { expect } from 'chai';
 import { spy, match } from 'sinon';
 import sinonChai from 'sinon-chai';

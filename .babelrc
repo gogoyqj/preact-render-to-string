@@ -1,10 +1,16 @@
 {
   "presets": [
-    "es2015-minimal",
-    "stage-0"
+      "es2015-minimal",
+      "stage-0"
   ],
   "plugins": [
-    "transform-class-properties",
-    ["transform-react-jsx", {"pragma":"h"}]
+      "transform-class-properties",
+      ["module-resolver", {
+          "alias": {
+              "react": "qreact",
+              "react-dom": "qreact"
+          }
+      }],
+      ["transform-react-jsx"]
   ]
 }

@@ -35,7 +35,7 @@ const VOID_ELEMENTS = [
  *    @param {Boolean} [options.xml=false]        If `true`, uses self-closing tags for elements without children.
  *    @param {Boolean} [options.pretty=false]        If `true`, adds whitespace for readability
  */
-renderToString.render = renderToString;
+// renderToString.render = renderToString;
 
 
 /** Only render elements, leaving Components inline as `<ComponentName ... />`.
@@ -49,7 +49,7 @@ let shallowRender = (vnode, context) => renderToString(vnode, context, SHALLOW);
 
 
 /** The default export is an alias of `render()`. */
-export default function renderToString(vnode, context, opts, inner, isSvgMode) {
+function renderToString(vnode, context, opts, inner, isSvgMode) {
     let { nodeName, attributes, children } = vnode || EMPTY,
         isComponent = false;
     context = context || {};
@@ -95,7 +95,7 @@ export default function renderToString(vnode, context, opts, inner, isSvgMode) {
                     context = assign(assign({}, context), c.getChildContext());
                 }
             }
-
+            if (rendered == null || rendered == undefined) return '<!--qreact empty-->';
             return renderToString(rendered, context, opts, opts.shallowHighOrder!==false);
         }
     }
@@ -232,8 +232,16 @@ function getFallbackComponentName(component) {
     }
     return name;
 }
-renderToString.shallowRender = shallowRender;
+// renderToString.shallowRender = shallowRender;
 
+
+let ssr = {
+    render: renderToString,
+    renderToString,
+    shallowRender
+};
+
+export default ssr;
 
 export {
     renderToString as render,

@@ -1,5 +1,5 @@
 import { render, shallowRender } from '../src';
-import { h, Component } from 'qreact';
+import React, {Component} from 'react';
 import chai, { expect } from 'chai';
 import { spy, stub, match } from 'sinon';
 import sinonChai from 'sinon-chai';
@@ -110,7 +110,7 @@ describe('render', () => {
                 .and.calledWithExactly(
                     match({
                         foo: 'test',
-                        children: ['content']
+                        children: 'content'
                     }),
                     match({})
                 );
@@ -133,9 +133,7 @@ describe('render', () => {
                 .and.calledWithExactly(
                     match({
                         foo: 1,
-                        children: [
-                            match({ nodeName:'span', children:['asdf'] })
-                        ]
+                        children: match({ nodeName:'span', children: 'asdf' })
                     }),
                     match({})
                 );
@@ -167,7 +165,7 @@ describe('render', () => {
 
             const PROPS = {
                 foo: 'test',
-                children: ['content']
+                children: 'content'
             };
 
             expect(rendered)
@@ -211,9 +209,7 @@ describe('render', () => {
                 .and.calledWithExactly(
                     match({
                         foo: 1,
-                        children: [
-                            match({ nodeName:'span', children:['asdf'] })
-                        ]
+                        children: match({ nodeName:'span', children: 'asdf' })
                     }),
                     match({}),    // empty state
                     match({})
@@ -319,7 +315,7 @@ describe('render', () => {
             expect(Inner.prototype.render).to.have.been.calledWith(match(PROPS), {}, CONTEXT);
 
             // make sure render() could make use of context.a
-            expect(Inner.prototype.render).to.have.returned(match({ children:['a'] }));
+            expect(Inner.prototype.render).to.have.returned(match({ children: 'a' }));
         });
 
         it('should preserve existing context properties when creating child contexts', () => {
