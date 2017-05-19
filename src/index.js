@@ -95,7 +95,7 @@ function renderToString(vnode, context, opts, inner, isSvgMode) {
                     context = assign(assign({}, context), c.getChildContext());
                 }
             }
-            if (rendered == null || rendered == undefined) return '<!--qreact empty-->';
+            if (rendered === null || rendered === undefined) return '<!--qreact empty-->';
             return renderToString(rendered, context, opts, opts.shallowHighOrder!==false);
         }
     }
